@@ -1,0 +1,61 @@
+
+
+
+{% include 'navbar.html' %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/events.css') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="static/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+  <h1>Upcoming Events</h1>
+  {% if events %}
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for events..">
+    <ul id="eventList">
+      {% for event in events %}
+      <div class="displayEvents">
+        <div class="card">
+            <li>
+              <a href="{{ url_for('event_details', event_id=event.id) }}">
+              <h2>{{ event.name }}</h2>
+              <p>Date: {{ event.date.strftime("%d-%m-%Y") }}</p>
+              <p>Time: {{ event.start_time.strftime("%H:%M") }}</p>
+              <p>Duration: {{ event.duration//60 }} Hours {{ event.duration%60}} Mins </p>
+              {% if event.available_capacity <= event.capacity * 0.05 and event.available_capacity > 0 %}
+                <p>Last {{ event.available_capacity }} spaces!</p>
+              {% endif %}
+              {% if event.available_capacity == 0 %}
+                <p>This Event Is Full!</p>
+              {% else %}
+                <form action="{{ url_for('request_ticket', event_id=event.id) }}">
+                  <input type="submit" value="Request Ticket">
+                </form>
+              {% endif %}
+            </li>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No events found.</p>
+  {% endif %}
+
+  <script>
+    function myFunction() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("eventList");
+        li = ul.getElementsByTagName("li");
+        card = ul.getElementsByClassName("card")
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                card[i].style.display = "";
+            } else {
+                card[i].style.display = "none";
+            }
+        }
+    }
+    </script>

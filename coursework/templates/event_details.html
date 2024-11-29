@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+	<script src="https://kit.fontawesome.com/c739fb1b8c.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/details.css') }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="static/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <div class="title-box">
+    <h1>{{ event.name }}</h1>
+  </div>
+  <hr class="solid">
+  <div class="details-box">
+    <p><i class="fa fa-calendar"></i><strong>Date:</strong> {{ event.date }}</p>
+    <p><i class="fa fa-clock-o"></i><strong>Time:</strong> {{ event.start_time }}</p>
+    <p><i class="fa fa-map-marker"></i><strong>Location:</strong> {{ event.location }}</p>
+    <p><i class="fa-regular fa-pen-to-square"></i><strong>Description:</strong> {{ event.description }}</p>
+  </div>
+  <div class="button">
+    {% if event.available_capacity == 0 %}
+      <p>This Event Is Full!</p>
+    {% else %}
+      <form action="{{ url_for('request_ticket', event_id=event.id) }}">
+        <input type="submit" value="Request Ticket">
+      </form>
+    {% endif %}
+  </div>
+  <div class="return">
+    <a href="{{url_for('events')}}">Back to events page</a>
+</div>
+</main>
+{% endblock %}

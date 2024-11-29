@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+{% include 'navbar.html' %}
+
+<html>
+<head>
+	<title>Registration Page</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+	<div class="register">
+		<h1>Register</h1>
+		<form action="{{ url_for('register') }}" method="POST">
+			<label for="name">Name</label>
+			<input type="text" id="name" name="name" required>
+
+			<label for="email">Email</label>
+			<input type="text" id="email" name="email" required>
+
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" required>
+
+			<label for="confirm_password">Confirm Password</label>
+			<input type="password" id="confirm_password" name="confirm_password" required>
+
+			<label>
+				<input type="checkbox" id="organiser_checkbox" name="organiser" onclick= "myFunction()">
+				Register as organiser ?
+			</label>
+
+			<label for="organiser_code" style="display:none" id="label">Organiser Code</label>
+			<input type="text" id="organiser_code" name="organiser_code" style="display:none">
+			<input type="submit" value="Register">
+		</form>
+		<p>Already have an account? <a href="{{ url_for('login') }}">Login now</a></p>
+	</div>
+</body>
+</html>
+
+<script>
+	function myFunction() {
+	  var checkBox = document.getElementById("organiser_checkbox");
+	  var input = document.getElementById("organiser_code");
+	  var label = document.getElementById("label")
+	  if (checkBox.checked == true){
+		input.style.display = "block";
+		label.style.display = "block";
+	  } else {
+		 input.style.display = "none";
+		 label.style.display = "none";
+	  }
+	}
+</script>

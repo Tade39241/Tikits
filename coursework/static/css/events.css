@@ -1,0 +1,95 @@
+#myInput {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  ::placeholder{
+    font-size: medium;
+    margin-left: 30px;
+  }
+  
+  .card li a {
+    display: block;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 80%;
+    text-align: center;
+    align-items: center;
+    text-align-last: center;
+    border-radius: 20px;
+    transition: transform .5s;
+    color: #222020;
+  }
+
+
+  p{
+    font-size: medium;
+  }
+
+  .card:hover {
+    transform: scale(1.01);
+  }
+
+  #eventList li {
+    margin-bottom: 40px;
+    justify-self: center;
+    list-style: none;
+    list-style-type: none;
+    font-size: 12px;
+
+  }
+  
+  #eventList h2 {
+    margin-top: 0;
+  }
+  
+  #eventList .event_details{
+    margin: 10px 0;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+    }
+  
+  #eventList form {
+    margin-top: 10px;
+  }
+  
+  #eventList input[type="submit"] {
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  
+  #eventList input[type="submit"]:hover {
+    background-color: #1a73e8;
+  }
+  
+  #eventList p:last-child {
+    color: rgb(235, 13, 13);
+    font-weight: bold;
+  }
+  
+  #eventList p:last-child, #eventList p:last-child + form {
+    margin-top: 10px;
+  }
+
+  #myInput{
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+  }

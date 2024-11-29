@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/request_ticket.css') }}">
+</head>
+
+<body>
+    <div class = "container">
+        <p>Request tickets for {{ event.name }}</p>
+        <form action="{{ url_for('request_ticket', event_id=event.id) }}" method="POST">
+            <label for="num_tickets">Quantity</label>
+            <input type="number" name='num_tickets' min="1" max="3" value="1" required>
+            <input type="submit" value="Give me!">
+            {% with messages = get_flashed_messages(category_filter=["request_ticket"]) %}
+                {% if messages  %}
+                <ul class=flashes>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              {% endwith %}
+              <a href="{{url_for('events')}}">Back to events page</a>
+        </form>
+
+    </div> 
+</body>
+{% endblock %}

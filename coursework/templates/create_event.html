@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% include 'navbar.html' %}
+<html>
+<head>
+	<title>New Event</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	<link rel="apple-touch-icon" sizes="180x180" href="static/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+	<div class="create_event">
+		<h1>New Event</h1>
+		<form method="POST" enctype="multipart/form-data">
+			<label for="event_name">Name:</label>
+			<input type="text" name="event_name" required>
+			
+			<label for="event_description">Description:</label>
+			<textarea name="event_description" required></textarea>
+
+			<label for="event_date">Date:</label>
+			<input type="date" name="event_date" required>
+
+			<label for="event_start_time">Start Time:</label>
+			<input type="time" name="event_start_time" required>
+
+			<label for="event_end_time">End Time:</label>
+			<input type="time" name="event_end_time" required>
+
+			<label for="event_capacity">Capacity:</label>
+			<input type="number" name="event_capacity" required>
+
+			<label for="event_location">Location:</label>
+			<input type="text" name="event_location" required>
+			
+			<input type="submit" value="Create Event">
+		</form>
+	</div>
+</body>
+</html>
+

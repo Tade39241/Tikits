@@ -1,0 +1,71 @@
+.promote_user #myInput {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    align-content: center;
+    font-size: large;
+  }
+
+  main{
+	background-color: #fff;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	margin-top: 60px;
+	margin-bottom: 60px;
+	box-shadow: 0 5px 5px rgba(0, 0, 0.1, 0.1);
+
+}
+
+.promote_user{
+    background-color: #fff;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-top: 60px;
+	margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 20vw;
+}
+
+.promote_user .autocomplete input{
+
+    width: 100%;
+    padding:  5px 5px;
+    font-size: 32px;
+    border: none;
+    background: #fff;
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    cursor: text;
+
+}
+
+.promote_user #submit{
+    float: right;
+    background-color: #4285f4;
+	font-size: 20px;
+	font-weight: 500;
+	border: none;
+	border-radius: 30px;
+	transition: background-color 0.3s ease;
+    cursor: pointer;
+    color: #fff;
+    padding: 10px 20px;
+    
+}
+
+.promote_user #submit:hover{
+    background-color: #1a73e8;
+}
+
+.promote_user form{
+    width: 60%;
+}

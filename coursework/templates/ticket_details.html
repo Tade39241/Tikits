@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'navbar.html' %}
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Event Details</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/details.css') }}">
+</head>
+
+<body>
+	<main>
+		<div class="ticket-details">
+			<h1>{{ ticket.barcode }}</h1>
+			<p><strong>Event Organiser:</strong> {{ ticket.event.organiser.username }}</p>
+			<p><strong>Event Name:</strong> {{ ticket.event.name }}</p>
+			<div class="svg">
+				<p>{{ svg_code }}</p>
+			</div>
+			{% if user.id == ticket.user_id %}
+				<p>You are attending this event.</p>
+			{% endif %}
+			<form action="{{ url_for('ticket_details', ticket_id=ticket.id) }}" method="POST">
+				<p>Are you sure you want to cancel this ticket?</p>
+				<button type="submit" class="cta-button">Cancel Ticket</button>
+				<a href="{{url_for('dashboard')}}">Back to dashboard</a>
+			</form>
+		</div>
+	</main>
+</body>
+</html>

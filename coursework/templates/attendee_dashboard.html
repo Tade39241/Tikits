@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+<div class="container">
+    <h1>Attendee Dashboard</h1>
+    <p>Welcome, {{ current_user.username }}!</p>
+
+    <h2>Your Tickets</h2>
+    <ul>
+        {% for ticket in tickets %}
+        <div class="card"><a href="{{ url_for('ticket_details', ticket_id=ticket.id) }}">
+            <li>
+                <p><strong>Event Name: </strong>{{ticket.event.name}}</p>
+                <p><strong>Event Date and Time: </strong>{{ ticket.event.date.strftime('%d-%m-%Y')}} , {{ ticket.event.start_time }}</p>
+                <p><strong>Ticket Barcode: </strong>{{ ticket.barcode }}</p>
+            </li>
+        </a>
+        </div>
+        {% endfor %}
+    </ul>
+
+    <h2>Events You're Attending</h2>
+    <ul>
+        <div class="events">
+            {% for event in events %}
+                <div class="card">
+                    <li>
+                        <p><strong>Event Name: </strong><a href="{{ url_for('event_details', event_id=event.id) }}">{{ event.name }}</a> </p>
+                        <p><strong>Event Date and Time: </strong> {{ event.date.strftime('%Y-%m-%d %H:%M') }}</p>
+                    </li>
+                </div>
+            {% endfor %}
+        </div>
+    </ul>
+</div>
+
+{% endblock %}
+

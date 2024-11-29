@@ -1,0 +1,91 @@
+body {
+	background-color: #f7f7f7;
+}
+
+.login, .register , .validate{
+	background-color: #f1f1f1;
+	padding: 20px;
+	max-width: 420px;
+	margin: 0 auto;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	margin-top: 50px;
+}
+
+
+.create_event{
+	background-color: #f1f1f1;
+	padding: 20px;
+	max-width: 1000px;
+	margin: 0 auto;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	margin-top: 50px;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 20px;
+	font-family: 'Roboto', sans-serif;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+label {
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+input[type="text"], input[type="password"], input[type="submit"],input[type="number"] {
+	padding: 10px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	border: none;
+}
+
+input[type="text"], input[type="date"], input[type="time"],input[type="file"] {
+	padding: 10px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	border: none;
+}
+
+input[type="submit"] {
+	background-color: #4285f4;
+	color: white;
+	cursor: pointer;
+}
+
+a {
+	color: #4285f4;
+}
+
+.login #text{
+	font-size: small;
+
+}
+
+ul {
+	list-style-type: none;
+	padding: 10px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	border: none;
+
+}
+
+p {
+	font-size: 20px;
+	line-height: 1.5;
+	margin: 20px auto;
+	max-width: 800px;
+	text-align: center;
+}
+
+.register #label{
+	margin-top: 10px;
+}
+

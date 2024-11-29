@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cancel.css') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="static/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<body>
+    <div class="container">
+        <h1>Cancel Event</h1>
+        <form action="{{ url_for('cancel_event', event_id=event.id) }}" method="POST">
+            <p>Are you sure you want to cancel this event?</p>
+            <button type="submit" class="cta-button">Cancel Event</button>
+            <a href="{{url_for('dashboard')}}">Back to dashboard</a>
+        </form>
+    </div>
+</body>
+{% endblock %}

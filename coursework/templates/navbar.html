@@ -1,0 +1,29 @@
+<header>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+	<div class="logo"><img src= "{{ url_for('static', filename='images/logo.png') }}" height="90px" width="180px" ></div>
+	<link rel="apple-touch-icon" sizes="180x180" href="static/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+	<nav>
+		{% if session.type == 'organiser' %}
+			<a href="/">Home</a>
+			<a href="{{ url_for('events')}}">Events</a>
+			<a href="{{ url_for('create_event')}}">Create Events</a>
+			<a href="{{ url_for('dashboard')}}">My Dashboard</a>
+			<a href="{{ url_for('logout')}}">Logout</a>
+		{% elif session.type == 'attendee' %}
+			<a  href="/">Home</a>
+			<a href="{{ url_for('events')}}">Events</a>
+			<a href="{{ url_for('dashboard')}}">My Dashboard</a>
+			<a href="{{ url_for('logout')}}">Logout</a>
+		{% else %}
+		<a  href="/">Home</a>
+		<a href="{{ url_for('events')}}">Events</a>
+		<a href="{{ url_for('login')}}">Login</a>
+		<a href="{{ url_for('register')}}">Register</a>
+		
+
+		{% endif %}
+	</nav>
+</header>
