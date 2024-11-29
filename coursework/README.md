@@ -46,9 +46,3 @@ Acknowledgements:
 
   https://www.w3schools.com/howto/howto_js_autocomplete.asp
   https://www.w3schools.com/howto/howto_js_filter_lists.asp
-
-
-
-Your _video_ must replace the `demo.mp4` file in this folder
-
-Before submitting your coursework, run `./clean.sh` as this will remove the virtual environment which can be reconstructed locally.
